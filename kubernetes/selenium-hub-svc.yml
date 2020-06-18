@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: selenium-hub
+  labels:
+    app: selenium-hub
+spec:
+  ports:
+  - port: 4444
+    targetPort: 4444
+    name: http
+  selector:
+    app: selenium-hub
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: selenium-hub
+  annotations:
+    zalando.org/aws-load-balancer-scheme: internal
+    zalando.org/skipper-filter: |
+      compress() -> modPath("^/v[0-9]+/", "/")
+spec:
+  rules:
+  - host: k8s-selenium-grid.staging.ecommerce.elsevier.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: selenium-hub
+          servicePort: 4444

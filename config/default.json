@@ -1,0 +1,217 @@
+{
+    "log": {
+        "name": "",
+        "level": "info"
+    },
+    "statusServer" : "http://status-server.staging.ecommerce.elsevier.com/",
+    "submitApiUrl" : "http://orr-submit-server-internal.staging.ecommerce.elsevier.com/submissions",
+    "ordersAPIUrl" : "https://orr-api.staging.ecommerce.elsevier.com/",
+    "orderStatusUpdateApiUrl": "https://order-status-api.staging.ecommerce.elsevier.com/",
+    "affiliateFeed": {
+        "awsRegion": "eu-west-1",
+        "bucket": "",
+        "filename": ""
+    },
+    "purchasableProducts": {
+        "printBook": true,
+        "vstEBook": true,
+        "sdrmEBook": true,
+        "deltaJournal": true,
+        "argiJournal": true,
+        "articleChoice": true,
+        "sdArticle": true
+    },
+    "combinations": [{
+        "name": "local",
+        "value": "local",
+        "default": true,
+        "versions": [{
+            "name": "local",
+            "value": "local"
+        }],
+        "browsers": ["chrome"]
+    },{
+        "name": "MAC",
+        "value": "OS X",
+        "default": true,
+        "versions": [{
+            "name": "HIGH_SIERRA",
+            "value": "High Sierra"
+        }, {
+            "name": "SIERRA",
+            "value": "Sierra"
+        }, {
+            "name": "EL_CAPITAN",
+            "value": "El Capitan"
+        }, {
+            "name": "YOSEMITE",
+            "value": "Yosemite"
+        }, {
+            "name": "MAVERICKS",
+            "value": "Mavericks"
+        }, {
+            "name": "MOUNTAIN_LION",
+            "value": "Mountain Lion"
+        }, {
+            "name": "LION",
+            "value": "Lion"
+        }, {
+            "name": "SNOW_LEOPARD",
+            "value": "Snow Leopard"
+        }],
+        "browsers": ["chrome", "firefox", "safari"]
+    }, {
+        "name": "WIN",
+        "value": "Windows",
+        "default": false,
+        "versions": [
+            {
+                "name": "XP",
+                "value": "XP"
+            },
+            {
+                "name": "7",
+                "value": "7"
+            },
+            {
+                "name": "8",
+                "value": "8"
+            },
+            {
+                "name": "8.1",
+                "value": "8.1"
+            },
+            {
+                "name": "10",
+                "value": "10"
+            }
+        ],
+        "browsers": [
+            "chrome",
+            "firefox",
+            "edge",
+            "ie"
+        ]
+    }, {
+        "name": "IOS",
+        "value": "ios",
+        "default": false,
+        "versions": [{
+            "name": "11.0",
+            "value": "11.0"
+        }, {
+            "name": "11.2",
+            "value": "11.2"
+        }],
+        "browsers": ["iPad", "iPhone"]
+    }, {
+        "name": "ANDROID",
+        "value": "android",
+        "default": false,
+        "versions": [],
+        "browsers": ["android"]
+    }],
+    "browsers": [{
+        "name": "chrome",
+        "value": {
+            "browser": "Chrome",
+            "browserName": "chrome",
+            "browser_version": "67",
+            "elementScrollBehavior": 1,
+            "browserstack.selenium_version": "3.11.0",
+            "resolution": "1920x1080",
+            "acceptSslCert": "true",
+            "chromeOptions": {
+                "args": ["--start-maximized"]
+            }
+        }
+    }, {
+        "name": "firefox",
+        "value": {
+            "browser": "Firefox",
+            "browserName": "firefox",
+            "browser_version": "61",
+            "elementScrollBehavior": 1,
+            "browserstack.selenium_version": "3.11.0",
+            "browserstack.geckodriver": "0.19.1",
+            "resolution": "1920x1080"
+        }
+    }, {
+        "name": "ie",
+        "value": {
+            "browser": "IE",
+            "browserName": "ie",
+            "browser_version": "11",
+            "elementScrollBehavior": 1,
+            "browserstack.selenium_version": "3.9.0",
+            "browserstack.ie.driver": "3.9.0",
+            "browserstack.ie.enablePopups": false,
+            "resolution": "1920x1080"
+        }
+    }, {
+        "name": "edge",
+        "value": {
+            "browser": "Edge",
+            "browserName": "edge",
+            "browser_version": "17",
+            "elementScrollBehavior": 1,
+            "browserstack.selenium_version": "3.11.0",
+            "browserstack.edge.enablePopups": false,
+            "resolution": "1920x1080"
+        }
+    }, {
+        "name": "safari",
+        "value": {
+            "browser": "Safari",
+            "browserName": "safari",
+            "browser_version": "11.1",
+            "elementScrollBehavior": 1,
+            "browserstack.selenium_version": "2.53.1"
+        }
+    }, {
+        "name": "iPad",
+        "value": {
+            "browser": "iPad",
+            "browserName": "ipad",
+            "realMobile": true,
+            "device": "iPad 5th",
+            "browserstack.appium_version": "1.7.0"
+        }
+    }, {
+        "name": "iPhone",
+        "value": {
+            "browser": "iPad",
+            "browserName": "ipad",
+            "realMobile": true,
+            "device": "iPhone 8",
+            "browserstack.appium_version": "1.7.0"
+        }
+    }, {
+        "name": "android",
+        "value": {
+            "browser": "Android",
+            "browserName": "android",
+            "realMobile": true,
+            "device": "Samsung Galaxy S8",
+            "browserstack.appium_version": "1.7.0"
+        }
+    }],
+    "globalStoreCheckout": {
+        "url": "https://global-store-checkout.staging.ecommerce.elsevier.com/"
+    },
+    "databases": {
+        "orr": {
+            "host": "orr-orders-db-cluster.elsevier.internal",
+            "port": 3306,
+            "user": "admin",
+            "name": "elsio",
+            "password": "this-is-a-password"
+        },
+        "renewals": {
+            "host": "renewals-db.elsevier.internal",
+            "port": 3306,
+            "username": "admin",
+            "password": "this-is-a-password"
+        }
+    }
+}

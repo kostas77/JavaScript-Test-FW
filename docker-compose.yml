@@ -1,0 +1,43 @@
+version: "3"
+services:
+  chrome:
+    image: selenium/standalone-chrome-debug:3.141.59
+    volumes:
+      - /dev/shm:/dev/shm
+    environment:
+      SCREEN_WIDTH: 1920
+      SCREEN_HEIGHT: 1080
+      # Required to avoid container startup hanging sometimes in some environments
+      JAVA_OPTS: -Djava.security.egd=file:/dev/./urandom
+    ports:
+      # Selenium server exposed at http://0.0.0.0:4444/wd/hub
+      - 4444:4444
+      # VNC for local debugging, port will be assigned to first available port - use `docker ps` to find the assigned port
+      - 0:5900
+
+  firefox:
+    image: selenium/standalone-firefox-debug:3.141.59-dubnium
+    volumes:
+      - /dev/shm:/dev/shm
+    environment:
+      SCREEN_WIDTH: 1920
+      SCREEN_HEIGHT: 1080
+      # Required to avoid container startup hanging sometimes in some environments
+      JAVA_OPTS: -Djava.security.egd=file:/dev/./urandom
+    ports:
+      # Selenium server exposed at http://0.0.0.0:4448/wd/hub
+      - 4448:4444
+      # VNC for local debugging, port will be assigned to first available port - use `docker ps` to find the assigned port
+      - 0:5900
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./test/features_global/db-dump:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=renewals
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=this-is-a-password
+    ports:
+      - "3306:3306"

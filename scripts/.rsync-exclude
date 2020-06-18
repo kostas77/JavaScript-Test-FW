@@ -1,0 +1,9 @@
+.git*
+.elastic*
+build*
+.eb*
+node_modules
+tests
+bin
+.idea
+.vscode

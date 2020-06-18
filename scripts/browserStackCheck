@@ -1,0 +1,13 @@
+#!/bin/bash
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+red=$(tput setaf 1)
+
+pgrep BrowserStackLocal 1>2 2>/dev/null
+rc=$?
+if [[ $rc != 0 ]]; then
+    echo "${bold}${red}BrowserStackLocal is not running!${normal}"
+    echo ""
+    exit $rc
+fi

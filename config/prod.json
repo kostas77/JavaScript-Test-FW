@@ -1,0 +1,3 @@
+{
+  "orderStatusUpdateApiUrl": "https://order-status-api.prod.ecommerce.elsevier.com/order"
+}

@@ -1,0 +1,5 @@
+{
+  "submitApiUrl" : "http://orr-submit-server-internal.dev.ecommerce.elsevier.com/submissions",
+  "ordersAPIUrl" : "https://orr-api.dev.ecommerce.elsevier.com/",
+  "orderStatusUpdateApiUrl": "https://order-status-api.dev.ecommerce.elsevier.com/"
+}
